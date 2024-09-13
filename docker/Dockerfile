@@ -26,7 +26,7 @@ WORKDIR /lemmy
 COPY . ./
 
 # Add this line to update submodules
-RUN git submodule update --init --recursive
+RUN git submodule update --init --recursive || (echo "Submodule update failed" && exit 1)
 
 # Debug build
 RUN --mount=type=cache,target=/lemmy/target set -ex; \
