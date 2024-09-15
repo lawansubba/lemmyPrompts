@@ -25,9 +25,6 @@ WORKDIR /lemmy
 
 COPY . ./
 
-# Add this line to update submodules
-RUN git submodule update --init --recursive || (echo "Submodule update failed" && exit 1)
-
 # Debug build
 RUN --mount="type=cache,target=/lemmy/target,id=lemmy_amd64_cache" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "debug" ]; then \
