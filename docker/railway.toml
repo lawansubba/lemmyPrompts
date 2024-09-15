@@ -1,0 +1,8 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "docker/Dockerfile"
+
+[deploy]
+startCommand = "./lemmy_server"
+healthcheckPath = "/api/v3/site"
+healthcheckTimeout = 300
