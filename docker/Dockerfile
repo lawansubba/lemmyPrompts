@@ -29,14 +29,14 @@ COPY . ./
 RUN git submodule update --init --recursive || (echo "Submodule update failed" && exit 1)
 
 # Debug build
-RUN --mount=type=cache,target=/lemmy/target,id=lemmy_amd64_cache set -ex; \
+RUN --mount="type=cache,target=/lemmy/target,id=lemmy_amd64_cache" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "debug" ]; then \
         cargo build --features "${CARGO_BUILD_FEATURES}"; \
         mv target/"${RUST_RELEASE_MODE}"/lemmy_server ./lemmy_server; \
     fi
 
 # Release build
-RUN --mount=type=cache,target=/lemmy/target,id=lemmy_amd64_cache set -ex; \
+RUN --mount="type=cache,target=/lemmy/target,id=lemmy_amd64_cache" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "release" ]; then \
         cargo clean --release; \
         cargo build --features "${CARGO_BUILD_FEATURES}" --release; \
@@ -62,14 +62,14 @@ ENV RUST_RELEASE_MODE=${RUST_RELEASE_MODE} \
     CARGO_BUILD_FEATURES=${CARGO_BUILD_FEATURES}
 
 # Debug build
-RUN --mount=type=cache,target=./target,id=lemmy_arm64_cache,uid=10001,gid=10001 set -ex; \
+RUN --mount="type=cache,target=./target,id=lemmy_arm64_cache,uid=10001,gid=10001" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "debug" ]; then \
         cargo build --features "${CARGO_BUILD_FEATURES}"; \
         mv "./target/$CARGO_BUILD_TARGET/$RUST_RELEASE_MODE/lemmy_server" /home/lemmy/lemmy_server; \
     fi
 
 # Release build
-RUN --mount=type=cache,target=./target,id=lemmy_arm64_cache,uid=10001,gid=10001 set -ex; \
+RUN --mount="type=cache,target=./target,id=lemmy_arm64_cache,uid=10001,gid=10001" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "release" ]; then \
         cargo clean --release; \
         cargo build --features "${CARGO_BUILD_FEATURES}" --release; \
