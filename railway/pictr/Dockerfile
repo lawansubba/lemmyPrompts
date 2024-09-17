@@ -10,4 +10,6 @@ ENV PICTRS__MEDIA__VIDEO_CODEC=vp9
 # Add other environment variables as needed
 
 # Set the entrypoint
-ENTRYPOINT ["/usr/local/bin/pict-rs", "-p",  "/mnt"]
+ENTRYPOINT ["/usr/local/bin/pict-rs"]
+
+CMD ["run"]
