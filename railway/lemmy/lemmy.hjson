@@ -18,7 +18,7 @@
     port: "${PGPORT}"
   }
 
-  hostname: "localhost"
+  hostname: "lemmy.railway.internal"
   bind: "0.0.0.0"
   port: 8536
 
