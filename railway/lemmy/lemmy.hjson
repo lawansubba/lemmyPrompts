@@ -11,8 +11,11 @@
     site_name: "lemmy-dev"
   }
   database: {
-    host: postgres.railway.internal
+    host: "postgres.railway.internal"
+    user: "${PGUSER}"
     password: "${POSTGRES_PASSWORD}"
+    dbname: "${PGDATABASE}"
+    port: "${PGPORT}"
   }
 
   hostname: "localhost"
