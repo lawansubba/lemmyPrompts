@@ -4,10 +4,10 @@
 [services.lemmy]
 path = "lemmy"
 env = {
-  LEMMY_ADMIN_PASSWORD = "your_admin_password",
+  LEMMY_ADMIN_PASSWORD = "${LEMMY_ADMIN_PASSWORD}",
   LEMMY_HOSTNAME = "{{ services.lemmy-ui.public_url }}",
   PICTRS_URL = "{{ services.pictrs.public_url }}",
-  PICTRS_API_KEY = "your_pictrs_api_key",
+  PICTRS_API_KEY = "${PICTRS_API_KEY}",
 }
 
 # Lemmy UI Service
@@ -23,7 +23,7 @@ env = {
 [services.pictrs]
 path = "pictrs"
 env = {
-  PICTRS_API_KEY = "your_pictrs_api_key",
+  PICTRS_API_KEY = "${PICTRS_API_KEY}",
 }
 [services.pictrs.volumes]
 "/mnt" = "pictrs-data"
