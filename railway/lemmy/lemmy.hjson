@@ -11,7 +11,7 @@
     site_name: "lemmy-dev"
   }
   database: {
-    host: postgres
+    host: postgres.railway.internal
     password: "${POSTGRES_PASSWORD}"
   }
 
