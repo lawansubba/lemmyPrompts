@@ -111,8 +111,15 @@ ARG UID
 RUN groupadd -g ${GID} -o ${UNAME} && \
     useradd -m -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 
-RUN mkdir -p /lemmy
+# Create the /lemmy directory and set ownership
+RUN mkdir -p /lemmy && \
+    chown ${UNAME}:${UNAME} /lemmy
+
+# Copy the configuration file
 COPY --chown=${UNAME}:${UNAME} lemmy.hjson /lemmy/config.hjson
+
+# Set the CONFIG_PATH environment variable
+ENV CONFIG_PATH=/lemmy/config.hjson
 
 USER $UNAME
 
