@@ -121,6 +121,8 @@ COPY --chown=${UNAME}:${UNAME} lemmy.hjson /lemmy/config.hjson
 # Set the CONFIG_PATH environment variable
 ENV CONFIG_PATH=/lemmy/config.hjson
 
+RUN ls -l /lemmy
+
 USER $UNAME
 
 ENTRYPOINT ["lemmy_server"]
