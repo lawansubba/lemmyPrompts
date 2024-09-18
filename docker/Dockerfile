@@ -27,6 +27,8 @@ COPY . ./
 
 RUN ls -l
 
+RUN ls -l docker
+
 # Copy the configuration file
 COPY docker/lemmy.hjson /lemmy/config.hjson
 
