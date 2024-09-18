@@ -1,4 +1,5 @@
-FROM dessalines/lemmy:latest
+FROM dessalines/lemmy:dev
+
 
 # Copy your configuration file into the image
 COPY lemmy.hjson /lemmy/config.hjson
