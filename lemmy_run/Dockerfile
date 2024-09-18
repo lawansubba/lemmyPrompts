@@ -11,12 +11,6 @@ ARG RUSTFLAGS
 
 WORKDIR /lemmy
 
-# Copy Cargo.toml and Cargo.lock first to leverage Docker cache
-COPY Cargo.toml Cargo.lock ./
-
-# Copy the source code
-COPY src ./src
-
 COPY . ./
 
 RUN cargo build --features "${CARGO_BUILD_FEATURES}" --release
