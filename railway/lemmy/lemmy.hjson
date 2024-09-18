@@ -11,7 +11,7 @@
     site_name: "lemmy-dev"
   }
   database: {
-    host: "${{ Postgres.DATABASE_URL }}"
+    host: "postgres.railway.internal"
     user: "${PGUSER}"
     password: "${POSTGRES_PASSWORD}"
     dbname: "${PGDATABASE}"
