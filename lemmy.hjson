@@ -10,12 +10,13 @@
     admin_password: "${LEMMY_ADMIN_PASSWORD}"
     site_name: "lemmy-dev"
   }
+
   database: {
     host: "postgres.railway.internal"
     user: "${PGUSER}"
     password: "${POSTGRES_PASSWORD}"
     dbname: "${PGDATABASE}"
-    port: "${PGPORT}"
+    port: 5432
   }
 
   hostname: "lemmy.railway.internal"
