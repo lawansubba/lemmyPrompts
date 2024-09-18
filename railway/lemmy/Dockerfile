@@ -1,29 +1,30 @@
-# Use the official Rust image as the base image
-FROM rust:1.70 as builder
+# syntax=docker/dockerfile:1.9
+ARG RUST_VERSION=1.80
+ARG CARGO_BUILD_FEATURES=default
+ARG RUST_RELEASE_MODE=release 
 
-# Set the working directory
-WORKDIR /app
+FROM rust:${RUST_VERSION} AS builder
 
-# Copy the source code into the container
-COPY . .
+ARG CARGO_BUILD_FEATURES
+ARG RUST_RELEASE_MODE
+ARG RUSTFLAGS
 
-# Build the application
-RUN cargo build --release
+WORKDIR /lemmy
 
-# Create a new stage with a minimal image
-FROM debian:bullseye-slim
+COPY . ./
 
-# Install necessary dependencies
-RUN apt-get update && apt-get install -y libssl-dev libpq-dev ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN cargo build --features "${CARGO_BUILD_FEATURES}" --release
+RUN mv target/release/lemmy_server ./lemmy_server
 
-# Copy the built binary from the builder stage
-COPY --from=builder /app/target/release/lemmy_server /usr/local/bin/lemmy_server
+FROM debian:bookworm-slim
 
-# Set the entrypoint
-ENTRYPOINT ["lemmy_server"]
+RUN apt-get update && apt-get install -y libssl-dev libpq-dev ca-certificates curl && rm -rf /var/lib/apt/lists/*
 
-# Expose the port Lemmy runs on
+COPY --from=builder /lemmy/lemmy_server /usr/local/bin
+
+ENV RUST_LOG="warn,lemmy_server=debug,lemmy_api=debug,lemmy_api_common=debug,lemmy_api_crud=debug,lemmy_apub=debug,lemmy_db_schema=debug,lemmy_db_views=debug,lemmy_db_views_actor=debug,lemmy_db_views_moderator=debug,lemmy_routes=debug,lemmy_utils=debug,lemmy_websocket=debug"
+ENV RUST_BACKTRACE=full
+
 EXPOSE 8536
 
-# Use SIGTERM as the stop signal
-STOPSIGNAL SIGTERM
+ENTRYPOINT ["lemmy_server"]
