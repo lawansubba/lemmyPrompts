@@ -25,12 +25,9 @@ WORKDIR /lemmy
 
 COPY . ./
 
-RUN ls -l
-
-RUN ls -l docker
 
 # Copy the configuration file
-COPY docker/lemmy.hjson /lemmy/config.hjson
+COPY lemmy.hjson /lemmy/config.hjson
 
 # Set the environment variable for the configuration file path
 ENV CONFIG_PATH=/lemmy/config.hjson

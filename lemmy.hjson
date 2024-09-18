@@ -1,0 +1,32 @@
+{
+  # for more info about the config, check out the documentation
+  # https://join-lemmy.org/docs/en/administration/configuration.html
+
+  # This is a minimal lemmy config for the dev / main branch. Do not use for a 
+  # release / stable version.
+
+  setup: {
+    admin_username: "lemmy"
+    admin_password: "${LEMMY_ADMIN_PASSWORD}"
+    site_name: "lemmy-dev"
+  }
+  database: {
+    host: "${{ Postgres.DATABASE_URL }}"
+    user: "${PGUSER}"
+    password: "${POSTGRES_PASSWORD}"
+    dbname: "${PGDATABASE}"
+    port: "${PGPORT}"
+  }
+
+  hostname: "lemmy.railway.internal"
+  bind: "0.0.0.0"
+  port: 8536
+
+  pictrs: {
+    url: "pictr.railway.internal"
+    api_key: "${PICTRS_API_KEY}"
+    image_mode: None
+  }
+
+  #opentelemetry_url: "http://otel:4137"
+}
