@@ -1,8 +1,7 @@
 FROM dessalines/lemmy:dev
 
-
 # Copy your configuration file into the image
-COPY lemmy.hjson /lemmy/config.hjson
+COPY lemmy.hjson /etc/lemmy/config.hjson
 
 # Set environment variables if necessary
 ENV CONFIG_PATH=/lemmy/config.hjson
