@@ -1,6 +1,6 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "railway/lemmy/Dockerfile"
+dockerfilePath = "docker/Dockerfile"
 
 [deploy]
 startCommand = "lemmy_server"
