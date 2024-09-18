@@ -112,6 +112,9 @@ RUN groupadd -g ${GID} -o ${UNAME} && \
     useradd -m -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 USER $UNAME
 
+RUN mkdir -p /lemmy
+COPY --chown=${UNAME}:${UNAME} lemmy.hjson /lemmy/config.hjson
+
 ENTRYPOINT ["lemmy_server"]
 EXPOSE 8536
 STOPSIGNAL SIGTERM
