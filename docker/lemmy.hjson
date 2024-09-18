@@ -11,17 +11,20 @@
     site_name: "lemmy-dev"
   }
   database: {
-    host: postgres
+    host: "${{ Postgres.DATABASE_URL }}"
+    user: "${PGUSER}"
     password: "${POSTGRES_PASSWORD}"
+    dbname: "${PGDATABASE}"
+    port: "${PGPORT}"
   }
 
-  hostname: "localhost"
+  hostname: "lemmy.railway.internal"
   bind: "0.0.0.0"
   port: 8536
 
   pictrs: {
-    url: "http://pictrs:8080/"
-    # api_key: "${PICTRS_API_KEY}"
+    url: "pictr.railway.internal"
+    api_key: "${PICTRS_API_KEY}"
     image_mode: None
   }
 

@@ -25,6 +25,12 @@ WORKDIR /lemmy
 
 COPY . ./
 
+# Copy the configuration file
+COPY config.hjson /lemmy/config.hjson
+
+# Set the environment variable for the configuration file path
+ENV CONFIG_PATH=/lemmy/config.hjson
+
 # Debug build
 RUN --mount="type=cache,target=/lemmy/target,id=lemmy_amd64_cache" set -ex; \
     if [ "${RUST_RELEASE_MODE}" = "debug" ]; then \
