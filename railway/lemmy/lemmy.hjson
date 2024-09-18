@@ -24,7 +24,7 @@
   port: 8536
 
   pictrs: {
-    url: "pictrs"
+    url: "pictr"
     api_key: "${PICTRS_API_KEY}"
     image_mode: None
   }
