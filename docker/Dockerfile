@@ -25,6 +25,8 @@ WORKDIR /lemmy
 
 COPY . ./
 
+RUN ls -l
+
 # Copy the configuration file
 COPY docker/lemmy.hjson /lemmy/config.hjson
 
