@@ -4,7 +4,7 @@ FROM dessalines/lemmy:dev
 COPY lemmy.hjson /etc/lemmy/config.hjson
 
 # Set environment variables if necessary
-ENV CONFIG_PATH=/lemmy/config.hjson
+ENV LEMMY_CONFIG_LOCATION=/etc/lemmy/config.hjson
 
 # Expose the port
 EXPOSE 8536
