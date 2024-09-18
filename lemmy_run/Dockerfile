@@ -13,6 +13,8 @@ WORKDIR /lemmy
 
 COPY . ./
 
+RUN ls -la
+
 RUN cargo build --features "${CARGO_BUILD_FEATURES}" --release
 RUN mv target/release/lemmy_server ./lemmy_server
 
