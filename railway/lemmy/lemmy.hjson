@@ -13,9 +13,9 @@
 
   database: {
     host: "postgres.railway.internal"
-    user: "${PGUSER}"
-    password: "${POSTGRES_PASSWORD}"
-    dbname: "${PGDATABASE}"
+    user: "postgres"
+    password: "rtlWUuNqrlwNigPSuLNiVpkGQDHbYvcY"
+    dbname: "railway"
     port: 5432
   }
 
