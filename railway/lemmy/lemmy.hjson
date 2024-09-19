@@ -24,7 +24,7 @@
   port: 8536
 
   pictrs: {
-    url: "pictr.railway.internal"
+    url: "pictr-test.up.railway.app"
     api_key: "${PICTRS_API_KEY}"
     image_mode: None
   }
