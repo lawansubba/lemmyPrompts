@@ -6,6 +6,10 @@ ENV POSTGRES_USER=lemmy
 ENV POSTGRES_PASSWORD=password
 ENV POSTGRES_DB=lemmy
 
+# Create necessary volumes for persistent data storage
+VOLUME ["/var/lib/postgresql/data"]
+
+
 # Start PostgreSQL server
 CMD ["postgres", "-c", "session_preload_libraries=auto_explain", \
      "-c", "auto_explain.log_min_duration=5ms", \
