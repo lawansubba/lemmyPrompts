@@ -8,8 +8,3 @@ ENV LEMMY_UI_LEMMY_EXTERNAL_HOST=localhost:1236
 
 # Print the environment variable during build
 RUN echo "LEMMY_UI_LEMMY_INTERNAL_HOST: $LEMMY_UI_LEMMY_INTERNAL_HOST"
-
-RUN echo "LEMMY_UI_LEMMY_EXTERNAL_HOST: $LEMMY_UI_LEMMY_EXTERNAL_HOST"
-
-# Set the entrypoint
-ENTRYPOINT ["/usr/bin/lemmy-ui"]
