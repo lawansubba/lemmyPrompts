@@ -12,10 +12,10 @@
   }
 
   database: {
-    host: "postgres.railway.internal"
+    host: "harmonious-expression.railway.internal"
     user: "postgres"
-    password: "rtlWUuNqrlwNigPSuLNiVpkGQDHbYvcY"
-    dbname: "railway"
+    password: "password"
+    dbname: "lemmy"
     port: 5432
   }
 
