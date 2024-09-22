@@ -5,10 +5,10 @@ FROM pgautoupgrade/pgautoupgrade:16-alpine
 ENV POSTGRES_USER=lemmy 
 ENV POSTGRES_PASSWORD=password
 ENV POSTGRES_DB=lemmy
-ENV PGDATA=/var/lib/postgresql/data
+ENV PGDATA=/var/lib/postgresql/data/pgdata
 
 # Ensure the data directory exists
-RUN mkdir -p /var/lib/postgresql/data && chown -R postgres:postgres /var/lib/postgresql
+RUN mkdir -p /var/lib/postgresql/data/pgdata && chown -R postgres:postgres /var/lib/postgresql/data
 
 # Start PostgreSQL server
 CMD ["postgres", "-c", "session_preload_libraries=auto_explain", \
