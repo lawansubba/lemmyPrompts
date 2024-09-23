@@ -7,7 +7,7 @@
 
   setup: {
     admin_username: "lemmy"
-    admin_password: "${LEMMY_ADMIN_PASSWORD}"
+    admin_password: "lemmylemmy"
     site_name: "lemmy-dev"
   }
   database: {
