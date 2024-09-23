@@ -1,5 +1,5 @@
 # lemmy-ui/Dockerfile
-FROM dessalines/lemmy-ui:0.19.5
+FROM dessalines/lemmy-ui:dev
 
 # Set environment variables
 ENV LEMMY_UI_LEMMY_INTERNAL_HOST=lemmy.railway.internal
