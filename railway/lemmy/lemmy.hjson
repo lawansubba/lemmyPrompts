@@ -19,7 +19,7 @@
     port: 5432
   }
 
-  hostname: "lemmy-test.up.railway.app"
+  hostname: "localhost"
   bind: "0.0.0.0"
   port: 8536
 
