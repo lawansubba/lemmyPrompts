@@ -12,3 +12,5 @@ ENV LEMMY_UI_DEBUG=true
 
 # Print the environment variable during build
 RUN echo "LEMMY_UI_LEMMY_INTERNAL_HOST: $LEMMY_UI_LEMMY_INTERNAL_HOST"
+
+RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"

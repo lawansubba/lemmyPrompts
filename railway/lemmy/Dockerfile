@@ -16,3 +16,5 @@ ENV LEMMY_CONFIG_LOCATION=/etc/lemmy/config.hjson
 
 # Expose the port
 EXPOSE 8536
+
+RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"

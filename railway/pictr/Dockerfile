@@ -13,3 +13,5 @@ ENV PICTRS__MEDIA__VIDEO_CODEC=vp9
 ENTRYPOINT ["/usr/local/bin/pict-rs"]
 
 CMD ["run"]
+
+RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"

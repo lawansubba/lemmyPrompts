@@ -19,3 +19,5 @@ CMD ["postgres", "-c", "session_preload_libraries=auto_explain", \
 
 # Expose the default PostgreSQL port (5432)
 EXPOSE 5432
+
+RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"
