@@ -4,7 +4,7 @@ FROM dessalines/lemmy-ui:dev
 # Set environment variables
 ENV LEMMY_UI_LEMMY_INTERNAL_HOST=lemmy.railway.internal
 
-ENV LEMMY_UI_LEMMY_EXTERNAL_HOST=lemmy-test.up.railway.app:8536
+ENV LEMMY_UI_LEMMY_EXTERNAL_HOST=lemmy-test.up.railway.app
 
 ENV LEMMY_UI_HTTPS=true 
 
