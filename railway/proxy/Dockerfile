@@ -5,7 +5,7 @@ FROM nginx:1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy the HTML content to the default Nginx directory
-COPY index.html /usr/share/nginx/html/index.html
+COPY index1.html /usr/share/nginx/html/index.html
 
 RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"
 
