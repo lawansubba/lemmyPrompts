@@ -8,5 +8,3 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 
 RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"
-
-CMD ["nginx", "-g", "daemon off;"]
