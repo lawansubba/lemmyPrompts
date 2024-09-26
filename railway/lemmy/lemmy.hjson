@@ -19,10 +19,12 @@
     port: 5432
   }
 
-  hostname: "localhost"
+  hostname: "lemmy-test.up.railway.app"
   bind: "0.0.0.0"
   port: 8536
 
+  allowed_origin: "https://lemmyui-test.up.railway.app"
+  
   pictrs: {
     api_key: "${PICTRS_API_KEY}"
     image_mode: None

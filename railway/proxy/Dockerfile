@@ -5,3 +5,5 @@ FROM nginx:1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"
+
+CMD ["nginx", "-g", "daemon off;"]
