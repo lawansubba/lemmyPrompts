@@ -1,5 +1,5 @@
 # proxy/Dockerfile
-FROM nginx:alpine
+FROM nginx:stable-alpine-debug
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -8,3 +8,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 
 RUN timestamp=$(date +'%Y-%m-%d %H:%M:%S') && echo "Current timestamp: $timestamp"
+
+EXPOSE 80 443
+
+CMD ["nginx", "-g", "daemon off;"]
