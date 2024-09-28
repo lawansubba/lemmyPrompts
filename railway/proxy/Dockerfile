@@ -1,5 +1,5 @@
 # proxy/Dockerfile
-FROM nginx:stable-alpine-debug
+FROM nginx:alpine
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
